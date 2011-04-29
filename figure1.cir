@@ -1,0 +1,25 @@
+* simple bandpass filter
+
+r1 1 2 50
+r2 4 0 50
+c1 2 0 0.319u
+c2 3 4 63.72p
+c3 4 0 0.319u
+l1 2 0 0.3176u
+l2 2 3 1.59u
+l3 4 0 0.3176u
+
+vin 0 1 AC 1V PULSE(0 1 1n 1n 1n 50n 1)
+
+*.tran 10n 100000n
+.ac DEC 10 10k 100MEG
+.plot ac vm(4) logx logy
+*.ac DEC 10 10k 10MEG method=AWE node=4 order=2
+*.ac DEC 10 10k 10MEG method=AWE node=4 order=3
+*.ac DEC 10 10k 10MEG method=AWE node=4 order=4
+.ac DEC 10 10k 100MEG method=AWE node=4 order=13
+*.ac DEC 10 10k 10MEG method=AWE node=4 order=6
+*.ac DEC 10 10k 10MEG method=AWE node=4 order=11
+*.xgraph foo mag(v(4)) loglog
+
+.end

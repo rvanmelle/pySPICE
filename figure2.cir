@@ -1,0 +1,38 @@
+* figure 2 circuit
+
+* STEP
+i1 0 1 AC 1 PULSE(0 -10m 0.0 1u 1u 500m 1)
+
+* IDEAL STEP
+*i1 0 1 AC 1 PULSE(0 10m 0.0 1n 1n 500m 1)
+
+r1 1 0 50
+
+r2 1 2 10
+c1 1 0 10n
+r3 2 3 10
+c2 3 0 10n
+r4 3 4 10
+c3 4 0 10n
+r5 4 5 10
+c4 5 0 10n
+r6 5 0 50
+r7 3 6 10
+c5 6 0 10n
+r8 6 7 10
+c6 7 0 10n
+r9 7 0 50
+
+*.tran 10n 10u
+*.plot tran v(7)
+*.tran 10n 10u method=AWE node=7 order=2 mode=IDEAL_STEP size=10m tr=1e-6 width=50n scaling=766423.0
+*.tran 10n 10u method=AWE node=7 order=3 mode=IDEAL_STEP size=10m tr=1e-6 width=50n scaling=766423.0
+*.tran 10n 10u method=AWE node=7 order=4 mode=IDEAL_STEP size=10m tr=1e-6 width=50n scaling=766423.0
+
+.ac dec 20 10k 10MEG
+.plot ac vm(7) logx logy
+.ac dec 10 10k 10MEG method=AWE node=7 order=2
+.ac dec 10 10k 10MEG method=AWE node=7 order=3
+.ac dec 10 10k 10MEG method=AWE node=7 order=4
+
+.end

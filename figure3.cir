@@ -1,0 +1,25 @@
+* figure 3 from the assignment
+
+v1 0 1 AC 1 PULSE(0 1 1n 1n 1n 50n 1)
+r1a 1 2 9606
+r1b 2 0 23280
+r2 2 3 6800
+c2 3 0 20.5n
+c1 2 4 94.9n
+e1 4 0 3 4 50k
+rg 4 5 9304
+c3 5 6 15n
+rq 5 6 52107
+e2 6 0 0 5 50k
+r4 6 7 9304
+r3 5 10 9304
+c4 7 8 15n
+e3 8 0 0 7 50k
+rfoo1 8 9 20k
+rfoo2 9 10 20k
+e4 10 0 0 9 50k
+
+.ac DEC 10 1 10MEG
+*.tran 1n 500000n
+
+.end
