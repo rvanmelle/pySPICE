@@ -1,1 +1,2 @@
-Simple Python based SPICE simulator engine that performs basic analyses such as AC, DC, and TRAN --- built on NumPY. It reads very basic standard SPICE netlists.
+Simple Python based SPICE simulator engine that performs basic analyses such as AC, DC, and TRAN --- built on NumPY. 
+It reads very basic standard SPICE netlists. Output is done to GNUPlot graphs.
